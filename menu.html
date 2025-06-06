@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Pastelería Franz</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primario: rgba(123, 255, 215, 0.6);
+            --color-fondo: #ffffff;
+            --color-texto: #333333;
+            --color-texto-claro: #555555;
+            --color-sombra: rgba(0, 0, 0, 0.08);
+            --font-titulos: 'Playfair Display', serif;
+            --font-cuerpo: 'Montserrat', sans-serif;
+            --header-height: 90px;
+        }
+
+        body.palette-1 { --color-primario: rgba(123, 255, 215, 0.6); }
+        body.palette-2 { --color-primario: rgba(132, 226, 241, 0.6); }
+        body.palette-3 { --color-primario: rgba(166, 246, 200, 0.6); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-cuerpo);
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            padding-top: var(--header-height);
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%237bffd7' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--font-titulos); }
+        h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; color: var(--color-texto); }
+        section { padding: 80px 0; }
+        .color-switcher { position: fixed; top: 34px; right: 20px; z-index: 1001; display: flex; gap: 8px; }
+        .color-button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.2s ease; }
+        .color-button:hover { transform: scale(1.15); }
+        #btn-palette-1 { background-color: #7bffd7; }
+        #btn-palette-2 { background-color: #84e2f1; }
+        #btn-palette-3 { background-color: #a6f6c8; }
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 40px;
+            background-color: rgba(123, 255, 215, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-family: var(--font-titulos); font-size: 2.5rem; text-decoration: none; color: var(--color-texto); }
+        .logo span { font-family: var(--font-cuerpo); font-size: 0.8rem; display: block; text-align: center; letter-spacing: 2px; margin-top: -10px; color: var(--color-texto-claro); }
+        nav a { font-family: var(--font-cuerpo); margin: 0 15px; text-decoration: none; color: var(--color-texto-claro); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--color-texto); }
+        nav a.active { color: var(--color-texto); font-weight: 700; }
+
+        /* --- ESTILO CORREGIDO --- */
+        /* La sección del menú ya no necesita un fondo, por lo que se elimina la regla #menu-section */
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+        .menu-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--color-sombra);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+        .menu-item-details {
+            padding: 30px 20px;
+        }
+        .menu-item-details h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: var(--color-texto-claro);
+        }
+        .price-list .price {
+            font-weight: 700;
+            color: var(--color-texto);
+            margin-left: 10px;
+        }
+
+        footer { background-color: #f4f4f4; padding: 60px 0; text-align: center; }
+        .footer-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+        .footer-col h3 { margin-bottom: 20px; font-family: var(--font-cuerpo); font-weight: 500; font-size: 1.2rem; }
+        .footer-col p, .footer-col a { color: var(--color-texto-claro); text-decoration: none; line-height: 1.8; }
+        .footer-col a:hover { text-decoration: underline; }
+        .footer-logo { font-size: 2rem; }
+        .footer-logo span { font-size: 0.7rem; display: block; letter-spacing: 1.5px; }
+
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root { --header-height: 70px; }
+            header { padding: 0 20px; justify-content: center; }
+            .logo { font-size: 2rem; }
+            .logo span { font-size: 0.7rem; margin-top: -8px;}
+            nav { display: none; }
+            h2 { font-size: 2.2rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .color-switcher { top: 25px; right: 10px; gap: 5px; }
+            .color-button { width: 18px; height: 18px; }
+        }
+    </style>
+</head>
+<body class="palette-1">
+
+    <header>
+        <a href="index.html" class="logo"> Franz <span>PASTELERÍA ARTESANAL</span> </a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="menu.html" class="active">Menú</a>
+            <a href="index.html#servicios">Servicios</a>
+            <a href="index.html#instagram">Instagram</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+        <div class="color-switcher">
+            <div class="color-button" id="btn-palette-1" data-palette="palette-1"></div>
+            <div class="color-button" id="btn-palette-2" data-palette="palette-2"></div>
+            <div class="color-button" id="btn-palette-3" data-palette="palette-3"></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="menu-section">
+            <div class="container">
+                <h2>Nuestro Menú</h2>
+                <div class="menu-grid">
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1987&auto=format&fit=crop" alt="Torta de Chocolate Belga">
+                        <div class="menu-item-details">
+                            <h3>Torta de Chocolate Belga</h3>
+                            <ul class="price-list">
+                                <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+                                <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+                                <li>Individual<span class="price">$4.500</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-156244010-443b7a7d3633?q=80&w=1974&auto=format&fit=crop" alt="Cheesecake de Frutos Rojos">
+                        <div class="menu-item-details">
+                            <h3>Cheesecake de Frutos Rojos</h3>
+                            <ul class="price-list">
+                                <li>Grande (16 porc.)<span class="price">$30.000</span></li>
+                                <li>Mediana (10 porc.)<span class="price">$22.000</span></li>
+                                <li>Individual<span class="price">$4.200</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1614707267537-789f26315510?q=80&w=1974&auto=format&fit=crop" alt="Tarta de Limón y Merengue">
+                        <div class="menu-item-details">
+                            <h3>Lemon Pie</h3>
+                            <ul class="price-list">
+                                <li>Grande (14 porc.)<span class="price">$28.000</span></li>
+                                <li>Mediana (8 porc.)<span class="price">$19.000</span></li>
+                                <li>Individual<span class="price">$3.800</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1978&auto=format&fit=crop" alt="Cupcakes Surtidos">
+                        <div class="menu-item-details">
+                            <h3>Cupcakes Surtidos</h3>
+                            <ul class="price-list">
+                                <li>Caja de 12<span class="price">$18.000</span></li>
+                                <li>Caja de 6<span class="price">$10.000</span></li>
+                                <li>Individual<span class="price">$2.000</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                     <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e15d8e1b5957?q=80&w=1974&auto=format&fit=crop" alt="Galletas con Chips">
+                        <div class="menu-item-details">
+                            <h3>Mini Delicias</h3>
+                            <ul class="price-list">
+                                <li>Alfajores (caja x 10)<span class="price">$12.000</span></li>
+                                <li>Galletas (caja x 12)<span class="price">$9.000</span></li>
+                                <li>Macarons (caja x 8)<span class="price">$15.000</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <div class="container footer-content">
+            <div class="footer-col"><div class="footer-logo"> Franz <span>PASTELERÍA ARTESANAL</span> </div></div>
+            <div class="footer-col"><h3>Contacto y Ubicación</h3><p>Av. Siempre Viva 742, Springfield</p><p>Teléfono: <a href="tel:+56912345678">+56 9 1234 5678</a></p><p>Email: <a href="mailto:hola@franz.cl">hola@franz.cl</a></p></div>
+            <div class="footer-col"><h3>Horarios</h3><p>Lunes a Viernes: 08:00 - 20:00</p><p>Sábados y Domingos: 09:00 - 19:00</p></div>
+        </div>
+    </footer>
+    
+    <script>
+        const colorButtons = document.querySelectorAll('.color-button');
+        colorButtons.forEach(button => { button.addEventListener('click', () => { document.body.className = button.getAttribute('data-palette'); }); });
+    </script>
+
+</body>
+</html>
