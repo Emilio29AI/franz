@@ -102,6 +102,48 @@
             font-weight: bold;
         }
 
+        .floating-social-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre los botones */
+            z-index: 100; /* Asegura que estén por encima del contenido pero debajo del carrito */
+        }
+
+        .social-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            text-decoration: none;
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-button.whatsapp {
+            background-color: #25D366; /* Color oficial de WhatsApp */
+        }
+
+        .social-button.instagram {
+            /* Gradiente oficial de Instagram */
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        }
+
+        .social-button svg {
+            width: 32px;
+            height: 32px;
+        }
+
 footer { background-color: #f4f4f4; padding: 60px 0; text-align: center; }
         .footer-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
         .footer-col h3 { margin-bottom: 20px; font-family: var(--font-cuerpo); font-weight: 500; font-size: 1.2rem; }
@@ -163,7 +205,7 @@ footer { background-color: #f4f4f4; padding: 60px 0; text-align: center; }
 
     <header>
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="Logo de Pastelería Franz" style="height: 60px;">
+            <img src="logo.png" alt="Logo de Pastelería Franz" style="height: 40px;">
         </a>
         <nav>
             <a href="#inicio">Inicio</a>
@@ -259,6 +301,21 @@ footer { background-color: #f4f4f4; padding: 60px 0; text-align: center; }
             header.classList.toggle('nav-open');
         });
     </script>
+    <div class="floating-social-buttons">
+
+    <!-- Ícono de WhatsApp -->
+    <!-- CAMBIAR AQUÍ: Reemplaza 5491112345678 con tu número de WhatsApp (código de país + número) -->
+    <a href="https://wa.me/5491124589950" class="social-button whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.654 4.288 1.902 6.043l-1.465 5.362 5.53-1.453z"/></svg>
+    </a>
+
+    <!-- Ícono de Instagram -->
+    <!-- CAMBIAR AQUÍ: Reemplaza "tu_usuario" con tu nombre de usuario de Instagram -->
+    <a href="https://instagram.com/franzpasteleria" class="social-button instagram" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+
+</div>
 <link rel="preconnect" href="https://app.snipcart.com" />
 <link rel="preconnect" href="https://cdn.snipcart.com" />
 <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
