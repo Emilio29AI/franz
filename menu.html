@@ -42,7 +42,7 @@
         #btn-palette-2 { background-color: #84e2f1; }
         #btn-palette-3 { background-color: #a6f6c8; }
         header {
-            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); z-index: 50;
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px;
             background-color: rgba(126, 255, 228, 0.4);
@@ -64,6 +64,36 @@
         .instagram-content { text-align: center; }
         .instagram-buttons { margin-top: 20px; }
 
+	.nav-cart-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            color: var(--color-texto);
+        }
+        .nav-cart-button svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+        }
+        .snipcart-items-count {
+            position: absolute;
+            top: -2px;
+            right: -5px;
+            background-color: var(--color-primario);
+            color: var(--color-texto);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+
         footer { background-color: #f4f4f4; padding: 60px 0; text-align: center; }
         .footer-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
         .footer-col h3 { margin-bottom: 20px; font-family: var(--font-cuerpo); font-weight: 500; font-size: 1.2rem; }
@@ -71,7 +101,24 @@
         .footer-col a:hover { text-decoration: underline; }
         .footer-logo { font-size: 2rem; }
         .footer-logo span { font-size: 0.7rem; display: block; letter-spacing: 1.5px; }
-        
+
+.menu-item .btn-comprar {
+    display: inline-block;
+    background-color: var(--color-texto);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-cuerpo);
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.menu-item .btn-comprar:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}      
         /* --- NUEVOS ESTILOS PARA MENÚ RESPONSIVO --- */
         .nav-toggle { display: none; }
 
@@ -119,6 +166,9 @@
             h2 { font-size: 2.2rem; }
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
         }
+
+</style>
+</head>
     </style>
 </head>
 <body class="palette-1">
@@ -134,6 +184,10 @@
             <a href="index.html#instagram">Instagram</a>
             <a href="index.html#contacto">Contacto</a>
         </nav>
+	<button class="nav-cart-button snipcart-checkout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span class="snipcart-items-count">0</span>
+        </button>
         <!-- BOTÓN HAMBURGUESA -->
         <button class="nav-toggle" aria-label="Abrir menú">
             <span></span><span></span><span></span>
@@ -145,8 +199,56 @@
             <div class="container">
                 <h2>Nuestro Menú</h2>
                 <div class="menu-grid">
-                    <div class="menu-item"><img src="Cheese5.png" alt="Cheescake NY"><div class="menu-item-details"><h3>CheeseCake NY Frutos Rojos</h3><ul class="price-list"><li>Grande (20 porc.)<span class="price">$35.000</span></li><li>Mediana (12 porc.)<span class="price">$25.000</span></li><li>Individual<span class="price">$4.500</span></li></ul></div></div>
-                    <div class="menu-item"><img src="Lemon Pie.JPG" alt="Lemon Pie"><div class="menu-item-details"><h3>Lemon Pie</h3><ul class="price-list"><li>Grande (16 porc.)<span class="price">$30.000</span></li><li>Mediana (10 porc.)<span class="price">$22.000</span></li><li>Individual<span class="price">$4.200</span></li></ul></div></div>
+                    <div class="menu-item">
+    <img src="Cheese5.png" alt="CheeseCake NY">
+    <div class="menu-item-details">
+        <h3>CheeseCake NY Frutos Rojos</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="cheesecake"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="CheeseCake NY Frutos Rojos"
+            data-item-image="Cheese5.png"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
+<div class="menu-item">
+    <img src="Lemon Pie.JPG" alt="Lemon Pie">
+    <div class="menu-item-details">
+        <h3>Lemon Pie</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="lemonpie"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="Lemon Pie"
+            data-item-image="Lemon Pie.JPG"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
                     <div class="menu-item"><img src="Kilime2.JPG" alt="Key Lime"><div class="menu-item-details"><h3>Key Lime</h3><ul class="price-list"><li>Grande (14 porc.)<span class="price">$28.000</span></li><li>Mediana (8 porc.)<span class="price">$19.000</span></li><li>Individual<span class="price">$3.800</span></li></ul></div></div>
                     <div class="menu-item"><img src="Box.JPG" alt="Box Surtido"><div class="menu-item-details"><h3>Box Surtido</h3><ul class="price-list"><li>Caja de 12<span class="price">$18.000</span></li><li>Caja de 6<span class="price">$10.000</span></li><li>Individual<span class="price">$2.000</span></li></ul></div></div>
                     <div class="menu-item"><img src="https://images.unsplash.com/photo-1606313564200-e15d8e1b5957?q=80&w=1974&auto=format&fit=crop" alt="Galletas con Chips"><div class="menu-item-details"><h3>Mini Delicias</h3><ul class="price-list"><li>Alfajores (caja x 10)<span class="price">$12.000</span></li><li>Galletas (caja x 12)<span class="price">$9.000</span></li><li>Macarons (caja x 8)<span class="price">$15.000</span></li></ul></div></div>
@@ -183,5 +285,16 @@
             header.classList.toggle('nav-open');
         });
     </script>
+<link rel="preconnect" href="https://app.snipcart.com" />
+<link rel="preconnect" href="https://cdn.snipcart.com" />
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+     <script>
+    window.SnipcartSettings = {
+        publicApiKey: 'NzBhODJhODMtMzIxOS00ZWM0LWJjMjUtZjExZGI5ZTAyMDdmNjM4ODQ4NDkwNTk5NzEzMzEz',
+        loadStrategy: 'on-user-interaction',
+    };
+
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+</script>
 </body>
 </html>
