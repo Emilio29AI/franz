@@ -33,7 +33,7 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3 { font-family: var(--font-titulos); }
-        h2 { text-align: left; font-size: 2.8rem; margin-bottom: 50px; color: var(--color-texto); }
+        h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; color: var(--color-texto); }
         section { padding: 80px 0; }
         .color-switcher { position: fixed; top: 34px; right: 20px; z-index: 1002; display: flex; gap: 8px; }
         .color-button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.2s ease; }
@@ -60,9 +60,11 @@
         .menu-item-details h3 { font-size: 2rem; margin-bottom: 20px; }
         .price-list { list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 1rem; color: var(--color-texto-claro); }
         .price-list .price { font-weight: 700; color: var(--color-texto); margin-left: 10px; }
-	#instagram { background-color: var(--color-primario); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background-color 0.3s ease; }
+	    #instagram { background-color: var(--color-primario); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background-color 0.3s ease; }
         .instagram-content { text-align: center; }
         .instagram-buttons { margin-top: 20px; }
+        .btn { display: inline-block; padding: 12px 25px; background-color: var(--color-fondo); color: var(--color-texto); text-decoration: none; border-radius: 50px; font-weight: 500; margin: 0 10px; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid var(--color-texto-claro); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px var(--color-sombra); }
 
 	.nav-cart-button {
             background: none;
@@ -344,14 +346,13 @@
                 </div>
             </div>
         </section>
-	<section id="instagram">
+	    <section id="instagram">
             <div class="container instagram-content">
                 <h2>Seguinos en Instagram</h2>
                 <p style="color: var(--color-texto-claro); max-width: 600px; margin: 0 auto; line-height: 1.6;">Descubrí nuestras creaciones diarias, promociones especiales y el detrás de cámaras de nuestra cocina.</p>
                 <div class="instagram-buttons"><a href="https://instagram.com/franzpasteleria" target="_blank" class="btn">@franzpasteleria</a></div>
             </div>
         </section>
-
     </main>
 
      <footer id="contacto">
