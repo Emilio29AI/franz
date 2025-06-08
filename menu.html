@@ -33,7 +33,7 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3 { font-family: var(--font-titulos); }
-        h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; color: var(--color-texto); }
+        h2 { text-align: left; font-size: 2.8rem; margin-bottom: 50px; color: var(--color-texto); }
         section { padding: 80px 0; }
         .color-switcher { position: fixed; top: 34px; right: 20px; z-index: 1002; display: flex; gap: 8px; }
         .color-button { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.2s ease; }
@@ -342,13 +342,112 @@
         </button>
     </div>
 </div>
-                    <div class="menu-item"><img src="Red Velvet.JPG" alt="Galletas con Chips"><div class="menu-item-details"><h3>Red Velvet</h3><ul class="price-list"><li>Alfajores (caja x 10)<span class="price">$12.000</span></li><li>Galletas (caja x 12)<span class="price">$9.000</span></li><li>Macarons (caja x 8)<span class="price">$15.000</span></li></ul></div></div>
+<div class="menu-item">
+    <img src="Red Velvet.JPG" alt="Red Velvet">
+    <div class="menu-item-details">
+        <h3>Red Velvet</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="redvelvet"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="Red Velvet"
+            data-item-image="Red Velvet.JPG"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
+<div class="menu-item">
+    <img src="Chocotorta.JPG" alt="Chocotorta">
+    <div class="menu-item-details">
+        <h3>Chocotorta</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="chocotorta"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="Chocotorta"
+            data-item-image="Chocotorta.JPG"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
+<div class="menu-item">
+    <img src="Brownie2.JPG" alt="Brownie">
+    <div class="menu-item-details">
+        <h3>Brownie Crema y DDL</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="brownie"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="Brownie Crema y DDL"
+            data-item-image="Brownie2.JPG"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
+<div class="menu-item">
+    <img src="Apple Crumble.JPG" alt="Apple Crumble">
+    <div class="menu-item-details">
+        <h3>Apple Crumble</h3>
+        <ul class="price-list">
+            <li>Grande (20 porc.)<span class="price">$35.000</span></li>
+            <li>Mediana (12 porc.)<span class="price">$25.000</span></li>
+            <li>Individual<span class="price">$4.500</span></li>
+        </ul>
+
+        <!-- BOTÓN DE COMPRA CON PODERES DE SNIPCART -->
+        <button
+            class="snipcart-add-item btn-comprar"
+            data-item-id="applecrumble"
+            data-item-price="4500"
+            data-item-url="/menu.html"
+            data-item-name="Apple Crumble"
+            data-item-image="Apple Crumble.JPG"
+            data-item-custom1-name="Tamano"
+            data-item-custom1-options="Individual|Mediana (12 porc.)[+20500]|Grande (20 porc.)[+30500]"
+            data-item-custom1-value="Individual">
+            Agregar al Carrito
+        </button>
+    </div>
+</div>
                 </div>
             </div>
         </section>
 	    <section id="instagram">
             <div class="container instagram-content">
-                <h2>Seguinos en Instagram</h2>
+                <h1>¡Visitanos en Instagram!</h1>
                 <p style="color: var(--color-texto-claro); max-width: 600px; margin: 0 auto; line-height: 1.6;">Descubrí nuestras creaciones diarias, promociones especiales y el detrás de cámaras de nuestra cocina.</p>
                 <div class="instagram-buttons"><a href="https://instagram.com/franzpasteleria" target="_blank" class="btn">@franzpasteleria</a></div>
             </div>
